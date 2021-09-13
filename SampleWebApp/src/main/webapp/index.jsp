@@ -55,7 +55,7 @@
                 <input id="female" type="radio" name="gender" value="f"/>
                     <label for="female">Female</label>
                 <input id="male" type="radio" name="gender" value="m"/>
-                    <label for="female">Female</label>
+                    <label for="female">Male</label>
         </form> 
         <fieldset><!--Grouping Related form elements-->
             <legend><strong>Bio Data</strong></legend>
