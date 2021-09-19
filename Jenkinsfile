@@ -13,6 +13,7 @@ pipeline {
                 withSonarQubeEnv('sonar') {
                 sh "mvn -f SampleWebApp/pom.xml sonar:sonar"
             }
+          }
         }
         
         stage('Build with Maven') {
