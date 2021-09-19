@@ -8,6 +8,13 @@ pipeline {
             }
         }
         
+        stage('Scan with Sonar') {
+            steps {
+                withSonarQubeEnv('sonar') {
+                sh "mvn -f SampleWebApp/pom.xml sonar:sonar"
+            }
+          }
+        }
         
         stage('Build with Maven') {
             steps {
@@ -19,14 +26,6 @@ pipeline {
             steps {
                 sh 'cd SampleWebApp && mvn test'
             }
-        }
-        
-           stage('Scan with Sonar') {
-            steps {
-                withSonarQubeEnv('sonar') {
-                sh "mvn -f SampleWebApp/pom.xml sonar:sonar"
-            }
-          }
         }
         
         stage('Deploy to Tomcat') {
