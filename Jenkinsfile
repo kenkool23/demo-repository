@@ -28,6 +28,23 @@ pipeline {
             }
         }
         
+         stage('Deploy to JFROG') {
+            steps {
+              rtUpload (
+                serverId: 'my-jfrog',
+                spec: '''{
+                     "files": [
+                 {
+              "pattern": "**/*.war",
+              "target": "demo-repo/folder/"
+            }
+         ]
+    }''',
+ 
+)
+            }
+        }
+        
         stage('Deploy to Tomcat') {
             steps {
                 deploy adapters: [tomcat9(credentialsId: '9a553b2d-20fe-4b54-b298-712626717cd9', 
